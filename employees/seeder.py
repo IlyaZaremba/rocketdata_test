@@ -1,4 +1,5 @@
 import os
+import random
 import sys
 
 import django
@@ -11,9 +12,11 @@ from django_seed import Seed
 from employees.models import Employee, User
 
 seeder = Seed.seeder()
-seeder.add_entity(Employee, 5, {
-    'name': seeder.faker.name(),
+for i in range(100):
+    seeder.add_entity(Employee, 1, {
+        'name': seeder.faker.name(),
+        'position': random.choice(Employee.EMPLOYEE_TYPE)[0]
+    })
 
-})
 
 inserted_pks = seeder.execute()
