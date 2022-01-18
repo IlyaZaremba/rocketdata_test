@@ -19,20 +19,13 @@ from django.conf import settings
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-3g&_9x7ldp%&#3p9^2u#99fv%ramv8zdxc+o=xfcd*!e24^#jc'
-#SECRET_KEY = environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+
 DEBUG = int(environ.get('DEBUG', default=0))
 
-# ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -90,19 +83,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'rocketdata.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'rocketdatadb',
-#         'USER': 'rocketdatauser',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -117,8 +98,6 @@ DATABASES = {
 
 
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -166,10 +145,7 @@ REST_FRAMEWORK = {
 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    #'DEFAULT_PERMISSION_CLASSES':[
-       # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-        #'rest_framework.permissions.IsAuthenticated',
-    #],
+
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE':10,
 }
